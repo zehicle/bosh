@@ -4,7 +4,7 @@
 require 'membrane'
 require 'open3'
 
-module Bosh::OpenCrowbar
+module Bosh::Crowbar
   class ExternalCpi
     # Raised when the external CPI executable returns an error unknown to director
     class UnknownError < StandardError; end
@@ -16,17 +16,17 @@ module Bosh::OpenCrowbar
     class NonExecutable < StandardError; end
 
     KNOWN_RPC_ERRORS = %w(
-      Bosh::OpenCrowbar::CpiError
-      Bosh::OpenCrowbar::NotSupported
-      Bosh::OpenCrowbar::NotImplemented
+      Bosh::Crowbar::CpiError
+      Bosh::Crowbar::NotSupported
+      Bosh::Crowbar::NotImplemented
 
-      Bosh::OpenCrowbar::CloudError
-      Bosh::OpenCrowbar::VMNotFound
+      Bosh::Crowbar::CloudError
+      Bosh::Crowbar::VMNotFound
 
-      Bosh::OpenCrowbar::NoDiskSpace
-      Bosh::OpenCrowbar::DiskNotAttached
-      Bosh::OpenCrowbar::DiskNotFound
-      Bosh::OpenCrowbar::VMCreationFailed
+      Bosh::Crowbar::NoDiskSpace
+      Bosh::Crowbar::DiskNotAttached
+      Bosh::Crowbar::DiskNotFound
+      Bosh::Crowbar::VMCreationFailed
     ).freeze
 
     RESPONSE_SCHEMA = Membrane::SchemaParser.parse do
@@ -146,7 +146,7 @@ module Bosh::OpenCrowbar
 
     def constantize(camel_cased_word)
       error_name = camel_cased_word.split('::').last
-      Bosh::OpenCrowbar.const_get(error_name)
+      Bosh::Crowbar.const_get(error_name)
     end
   end
 end

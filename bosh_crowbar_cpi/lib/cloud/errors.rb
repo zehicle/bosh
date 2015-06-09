@@ -1,7 +1,7 @@
 # Copyright (c) 2015 RackN, Inc.
 # Provisder under Apache 2 License
 
-module Bosh::OpenCrowbar
+module Bosh::Crowbar
   class CpiError < StandardError; end
   class NotImplemented < CpiError; end
   class NotSupported < CpiError; end

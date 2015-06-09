@@ -1,7 +1,7 @@
 # Copyright (c) 2015 RackN, Inc.
 # Provisder under Apache 2 License
 
-module Bosh; module OpenCrowbar; end; end
+module Bosh; module Crowbar; end; end
 
 require "forwardable"
 
@@ -20,7 +20,7 @@ module Bosh
   # VM:       VM created from a stemcell with custom settings (networking and resources)
   # Disk:     volume that can be attached and detached from the VMs,
   #           never attached to more than a single VM at one time
-  class OpenCrowbar
+  class Crowbar
 
     ##
     # Cloud initialization
@@ -102,6 +102,7 @@ module Bosh
     def create_vm(agent_id, stemcell_id, resource_pool,
                   networks, disk_locality = nil, env = nil)
       not_implemented(:create_vm)
+      # retrieve from resource pool (default, "system")
       # get VM from pool
       # set stemcell ID as ready state target role
       # commit network roles
@@ -235,7 +236,7 @@ module Bosh
     private
 
     def not_implemented(method)
-      raise Bosh::OpenCrowbar::NotImplemented,
+      raise Bosh::Crowbar::NotImplemented,
             "`#{method}' is not implemented by #{self.class}"
     end
 

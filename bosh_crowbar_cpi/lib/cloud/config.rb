@@ -3,7 +3,7 @@
 
 require 'forwardable'
 
-module Bosh::OpenCrowbar
+module Bosh::Crowbar
   class Config
 
     class << self

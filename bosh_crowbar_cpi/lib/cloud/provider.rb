@@ -1,7 +1,7 @@
 # Copyright (c) 2015 RackN, Inc.
 # Provisder under Apache 2 License
 
-module Bosh::OpenCrowbar
+module Bosh::Crowbar
   class Provider
     def self.create(cloud_config, director_uuid)
       if cloud_config.has_key?('provider')
@@ -22,7 +22,7 @@ module Bosh::OpenCrowbar
         raise CloudError, "Could not load Cloud Provider Plugin: #{plugin}, with error #{error.inspect}"
       end
 
-      Bosh::OpenCrowbar.const_get(plugin.capitalize).new(options)
+      Bosh::Crowbar.const_get(plugin.capitalize).new(options)
     end
   end
 

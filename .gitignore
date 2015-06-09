@@ -1,10 +1,12 @@
 *.rbc
 *.swp
+*.gem
 *~
 .DS_Store
 \#*\#
 .\#*
 .bundle
+Gemfile.lock
 .idea
 .local
 *.iml
@@ -16,6 +18,7 @@
 .yardoc
 
 /*/vendor/
+vendor/*
 Checkfile
 TAGS
 

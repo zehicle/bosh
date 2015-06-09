@@ -2,7 +2,7 @@
 # Provisder under Apache 2 License
 
 module Bosh
-  module OpenCrowbar
+  module Crowbar
     VERSION = '0.0.1'
   end
 end

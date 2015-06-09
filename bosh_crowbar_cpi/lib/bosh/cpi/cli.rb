@@ -68,9 +68,9 @@ class Bosh::Cpi::Cli
 
     begin
       result = @cpi.public_send(ruby_method, *arguments)
-    rescue Bosh::OpenCrowbar::RetriableCloudError => e
+    rescue Bosh::Crowbar::RetriableCloudError => e
       return error_response(error_name(e), e.message, e.ok_to_retry, e.backtrace)
-    rescue Bosh::OpenCrowbar::CloudError, Bosh::OpenCrowbar::CpiError => e
+    rescue Bosh::Crowbar::CloudError, Bosh::Crowbar::CpiError => e
       return error_response(error_name(e), e.message, false, e.backtrace)
     rescue ArgumentError => e
       return error_response(INVALID_CALL_ERROR_TYPE, "Arguments are not correct, details: '#{e.message}'", false, e.backtrace)
@@ -84,7 +84,7 @@ class Bosh::Cpi::Cli
   private
 
   def configure_director(director_uuid)
-    Bosh::OpenCrowbar::Config.uuid = director_uuid
+    Bosh::Crowbar::Config.uuid = director_uuid
   end
 
   def error_response(type, message, ok_to_retry, bt=[])
